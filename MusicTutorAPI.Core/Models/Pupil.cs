@@ -29,6 +29,8 @@ namespace MusicTutorAPI.Core.Models
 
         public Boolean IsActive { get; set; } = true;
 
+        public int FrequencyInDays { get; set; }
+
 
         public ICollection<Instrument> Instruments { get; set; }
 
