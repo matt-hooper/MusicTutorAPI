@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MusicTutorAPI.Core.Models
 {
     public class Instrument 
@@ -5,6 +7,8 @@ namespace MusicTutorAPI.Core.Models
         public int Id { get; set; }
         
         public string Name { get; set; }
+
+        public ICollection<PupilInstrument> PupilInstruments { get; set; }
         
     }
 }

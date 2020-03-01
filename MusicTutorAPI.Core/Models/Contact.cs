@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MusicTutorAPI.Core.Models
 {
     public class Contact 
@@ -9,6 +11,8 @@ namespace MusicTutorAPI.Core.Models
         public string Email { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public ICollection<Pupil> Pupils { get; set; }
         
     }
 }

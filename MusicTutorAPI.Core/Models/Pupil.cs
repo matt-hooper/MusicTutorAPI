@@ -8,7 +8,7 @@ namespace MusicTutorAPI.Core.Models
     {
         public Pupil()
         {
-            Instruments = new Collection<Instrument>();
+            PupilInstruments = new Collection<PupilInstrument>();
             Payments = new Collection<Payment>();
             Lessons = new Collection<Lesson>();
         }
@@ -21,18 +21,17 @@ namespace MusicTutorAPI.Core.Models
 
         public Contact Contact { get; set; }
         public decimal CurrentLessonRate { get; set; }
-        public decimal AccountBalance { get; set; }
-
-        public int NextLessonId { get; set; }
-
+        public decimal AccountBalance { get; set; } = 0.0m;
+        
         public DateTime StartDate { get; set; }
 
         public Boolean IsActive { get; set; } = true;
 
         public int FrequencyInDays { get; set; }
 
+        public byte[] Timestamp { get; set; }
 
-        public ICollection<Instrument> Instruments { get; set; }
+        public ICollection<PupilInstrument> PupilInstruments { get; set; }
 
         public ICollection<Payment> Payments { get; set; }
 
