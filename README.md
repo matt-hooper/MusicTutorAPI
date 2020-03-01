@@ -9,6 +9,9 @@ dotnet ef --startup-project MusicTutorAPI.Api/MusicTutorAPI.Api.csproj migration
 # Update database
 dotnet ef --startup-project MusicTutorAPI.Api/MusicTutorAPI.Api.csproj database update
 
+# Drop the database
+dotnet ef --startup-project MusicTutorAPI.Api/MusicTutorAPI.Api.csproj database drop
+
 # Rollback database - Update the database to a previous successful migration
 dotnet ef --startup-project MusicTutorAPI.Api/MusicTutorAPI.Api.csproj database update APreviousMigration -p MusicTutorAPI.Data/MusicTutorAPI.Data.csproj
 

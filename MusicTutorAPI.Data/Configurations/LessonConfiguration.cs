@@ -30,14 +30,21 @@ namespace MusicTutorAPI.Data.Configurations
                 .IsRequired(); 
 
             builder
-                .Property(c => c.IsPlanned)
+                .Property(l => l.IsPlanned)
                 .IsRequired();       
 
             builder
                 .HasOne(l => l.Pupil)
                 .WithMany(p => p.Lessons)
                 .HasForeignKey(l => l.PupilId)
-                .IsRequired();    
+                .IsRequired();  
+    
+            builder
+                .HasOne(l => l.PupilInstrument)
+                .WithMany(p => p.Lessons)
+                .HasForeignKey(l => new {l.PupilId, l.InstrumentId} )
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired(false);       
 
             builder
                 .ToTable("Lessons");                      

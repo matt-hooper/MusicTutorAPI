@@ -40,18 +40,6 @@ namespace MusicTutorAPI.Data.Configurations
                 .IsRowVersion(); 
 
             builder
-                .HasMany(p => p.Lessons)
-                .WithOne();
-
-            builder
-                .HasMany(p => p.Payments)
-                .WithOne();   
-
-            builder
-                .HasMany(p => p.PupilInstruments)
-                .WithOne();
-
-            builder
                 .HasOne(p => p.Contact)
                 .WithMany(c => c.Pupils)
                 .HasForeignKey(p => p.ContactID);     

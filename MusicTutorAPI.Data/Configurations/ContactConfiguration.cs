@@ -22,10 +22,6 @@ namespace MusicTutorAPI.Data.Configurations
                 .HasMaxLength(150);    
 
             builder
-                .HasMany(c => c.Pupils)
-                .WithOne();
-
-            builder
                 .ToTable("Contacts");    
   
         }
