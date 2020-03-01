@@ -26,7 +26,7 @@ namespace MusicTutorAPI.Data.Configurations
                 .WithOne();
 
             builder
-                .ToTable("Intruments");        
+                .ToTable("Instruments");        
    
         }
     }
