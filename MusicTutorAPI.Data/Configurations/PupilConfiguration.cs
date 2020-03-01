@@ -54,7 +54,10 @@ namespace MusicTutorAPI.Data.Configurations
             builder
                 .HasOne(p => p.Contact)
                 .WithMany(c => c.Pupils)
-                .HasForeignKey(p => p.ContactID);                       
+                .HasForeignKey(p => p.ContactID);     
+
+            builder
+                .ToTable("Pupils");                      
 
         }
     }

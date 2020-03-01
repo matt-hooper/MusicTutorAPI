@@ -8,6 +8,8 @@ namespace MusicTutorAPI.Data
     {
         public DbSet<Pupil> Pupils { get; set; }
         public DbSet<Instrument> Instruments { get; set; }
+
+        public DbSet<Contact> Contacts { get; set; }
         
         public MusicTutorAPIDbContext(DbContextOptions<MusicTutorAPIDbContext> options)
             : base(options)

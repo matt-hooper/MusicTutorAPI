@@ -23,7 +23,10 @@ namespace MusicTutorAPI.Data.Configurations
 
             builder
                 .HasMany(i => i.PupilInstruments)
-                .WithOne();    
+                .WithOne();
+
+            builder
+                .ToTable("Intruments");        
    
         }
     }

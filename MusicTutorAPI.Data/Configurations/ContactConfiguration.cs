@@ -24,6 +24,9 @@ namespace MusicTutorAPI.Data.Configurations
             builder
                 .HasMany(c => c.Pupils)
                 .WithOne();
+
+            builder
+                .ToTable("Contacts");    
   
         }
     }

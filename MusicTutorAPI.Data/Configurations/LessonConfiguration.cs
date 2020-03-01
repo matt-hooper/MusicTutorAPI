@@ -37,7 +37,10 @@ namespace MusicTutorAPI.Data.Configurations
                 .HasOne(l => l.Pupil)
                 .WithMany(p => p.Lessons)
                 .HasForeignKey(l => l.PupilId)
-                .IsRequired();                      
+                .IsRequired();    
+
+            builder
+                .ToTable("Lessons");                      
 
         }
     }

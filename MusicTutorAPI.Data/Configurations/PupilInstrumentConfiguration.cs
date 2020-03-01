@@ -22,6 +22,9 @@ namespace MusicTutorAPI.Data.Configurations
                 .WithMany(i => i.PupilInstruments)
                 .HasForeignKey(pt => pt.InstrumentId);
 
+            builder
+                .ToTable("PupilInstruments");    
+
         }
     }
 }
