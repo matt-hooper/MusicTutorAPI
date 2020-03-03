@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Microsoft.Data.Sqlite;
 using MusicTutorAPI.Data;
 
 namespace MusicTutorAPI.Api
@@ -34,11 +33,14 @@ namespace MusicTutorAPI.Api
             //--------------------------------------------------------------------
             
             //Swapped over to sqlite in-memory database
-            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = ":memory:" };
-            var connectionString = connectionStringBuilder.ToString();
-            var connection = new SqliteConnection(connectionString);
-            connection.Open();  //see https://github.com/aspnet/EntityFramework/issues/6968
-            services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlite(connection));
+            // var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = ":memory:" };
+            // var connectionString = connectionStringBuilder.ToString();
+            // var connection = new SqliteConnection(connectionString);
+            // connection.Open();  //see https://github.com/aspnet/EntityFramework/issues/6968
+            // services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlite(connection));
+
+            services.AddDbContext<MusicTutorAPIDbContext>(opt =>
+               opt.UseInMemoryDatabase("MusicTutorFull"));
             //--------------------------------------------------------------------
             
             services.AddSwaggerGen(options =>
