@@ -29,19 +29,10 @@ namespace MusicTutorAPI.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MusicTutorAPI.Data")));            
-            //--------------------------------------------------------------------
+            // services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MusicTutorAPI.Data")));            
             
-            //Swapped over to sqlite in-memory database
-            // var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = ":memory:" };
-            // var connectionString = connectionStringBuilder.ToString();
-            // var connection = new SqliteConnection(connectionString);
-            // connection.Open();  //see https://github.com/aspnet/EntityFramework/issues/6968
-            // services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlite(connection));
-
             services.AddDbContext<MusicTutorAPIDbContext>(opt =>
                opt.UseInMemoryDatabase("MusicTutorFull"));
-            //--------------------------------------------------------------------
             
             services.AddSwaggerGen(options =>
             {

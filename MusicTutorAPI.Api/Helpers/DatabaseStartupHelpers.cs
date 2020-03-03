@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MusicTutorAPI.Data;
 using MusicTutorAPI.Services.DatabaseCode.Services;
@@ -11,9 +11,9 @@ namespace MusicTutorAPI.Api.Helpers
     public static class DatabaseStartupHelpers
     {
 
-        public static IWebHost SetupDevelopmentDatabase(this IWebHost webHost)
+        public static IHost SetupDevelopmentDatabase(this IHost host)
         {
-            using (var scope = webHost.Services.CreateScope())
+            using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 using (var context = services.GetRequiredService<MusicTutorAPIDbContext>())
@@ -31,7 +31,7 @@ namespace MusicTutorAPI.Api.Helpers
                 }
             }
 
-            return webHost;
+            return host;
         }
     }
 }

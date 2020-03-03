@@ -15,13 +15,14 @@ namespace MusicTutorAPI.Api
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).SetupDevelopmentDatabase().Run();
+            CreateHostBuilder(args).Build().SetupDevelopmentDatabase().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build()
-                .SetupDevelopmentDatabase();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
