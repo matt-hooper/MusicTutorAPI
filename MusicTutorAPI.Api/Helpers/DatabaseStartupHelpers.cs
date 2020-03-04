@@ -21,7 +21,7 @@ namespace MusicTutorAPI.Api.Helpers
                     try
                     {
                         context.DevelopmentEnsureCreated();
-                        context.SeedDatabase();
+                        context.SeedDatabase(Directory.GetCurrentDirectory());
                     }
                     catch (Exception ex)
                     {
