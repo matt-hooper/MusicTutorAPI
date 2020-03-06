@@ -47,15 +47,8 @@ namespace MusicTutorAPI.Api
             // Register the Swagger services
             services.AddSwaggerDocument(config =>
             {
-                //config.GeneratorSettings.OperationProcessors.TryGet<ApiVersionProcessor>().IncludedVersions = new[] { "1.0" };
-                //config.SwaggerRoute = "v1.0.json";
                 config.Title = "Music Tutor V1";                
-            });
-            
-            // services.AddSwaggerGen(options =>
-            // {
-            //     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Music Tutor", Version = "v1" });
-            // });
+            });                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,14 +75,6 @@ namespace MusicTutorAPI.Api
             {
                 c.DocumentTitle = "Music Tutor V1";
             });
-
-            // app.UseSwagger();
-
-            // app.UseSwaggerUI(c =>
-            // {
-            //     c.RoutePrefix = "";
-            //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Music Tutor V1");
-            // });
         }
     }
 }

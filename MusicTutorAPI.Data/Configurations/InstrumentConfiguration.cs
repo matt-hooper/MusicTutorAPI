@@ -22,6 +22,10 @@ namespace MusicTutorAPI.Data.Configurations
                 .HasMaxLength(50);
 
             builder
+                .HasIndex(i => i.Name)
+                .IsUnique();
+
+            builder
                 .ToTable("Instruments");        
    
         }
