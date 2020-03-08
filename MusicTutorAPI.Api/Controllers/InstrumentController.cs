@@ -37,10 +37,9 @@ namespace MusicTutorAPI.Api.Controllers
         }
 
         /// <summary>
-        /// Gets the TodoItemHybrid with the given id
+        /// Gets the Item with the given id
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="service"></param>
         /// <returns></returns>
         [HttpGet("{id}", Name = "GetSingleInstrument")]
         public async Task<ActionResult<WebApiMessageAndResult<Instrument>>> GetSingleAsync(int id)
@@ -50,10 +49,8 @@ namespace MusicTutorAPI.Api.Controllers
 
         /// <summary>
         /// Creates a new item and returns the created entity, with the Id value provided by the database
-        /// NOTE: to show how business logic might work I added extra validation (name can't end with !) in the business logic
         /// </summary>
         /// <param name="item"></param>
-        /// <param name="service"></param>
         /// <returns>If successful it returns a CreatedAtRoute response - see
         /// https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-2.1#implement-the-other-crud-operations
         /// </returns>
@@ -91,10 +88,10 @@ namespace MusicTutorAPI.Api.Controllers
         }
 
         /// <summary>
-        /// Delete the Instrument 
+        /// Delete the Item 
         /// </summary>
         /// <returns></returns>
-        // DELETE api/instrument/5
+        // DELETE api/<type>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<WebApiMessageOnly>> DeleteItemAsync(int id)
         {
