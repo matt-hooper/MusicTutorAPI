@@ -33,10 +33,10 @@ namespace MusicTutorAPI.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            // services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MusicTutorAPI.Data")));            
+            services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MusicTutorAPI.Data")));            
             
-            services.AddDbContext<MusicTutorAPIDbContext>(opt =>
-               opt.UseInMemoryDatabase("MusicTutorFull"));
+            // services.AddDbContext<MusicTutorAPIDbContext>(opt =>
+            //    opt.UseInMemoryDatabase("MusicTutorFull"));
 
             services.GenericServicesSimpleSetup<MusicTutorAPIDbContext>(new GenericServicesConfig
             {
