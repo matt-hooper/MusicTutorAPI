@@ -18,14 +18,18 @@ namespace MusicTutorAPI.Api.Helpers
                 var services = scope.ServiceProvider;
                 using (var context = services.GetRequiredService<MusicTutorAPIDbContext>())
                 {
+                    var logger = services.GetRequiredService<ILogger<Program>>();                        
                     try
                     {
+                        logger.LogInformation("****** Call DevelopmentEnsureDeleted **********");
+                        context.DevelopmentEnsureDeleted();
+                        logger.LogInformation("****** Call DevelopmentEnsureCreated **********");
                         context.DevelopmentEnsureCreated();
+                        logger.LogInformation("****** Call SeedDatabase **********");
                         context.SeedDatabase(Directory.GetCurrentDirectory());
                     }
                     catch (Exception ex)
                     {
-                        var logger = services.GetRequiredService<ILogger<Program>>();
                         logger.LogError(ex, "An error occurred while setting up or seeding the development database.");
                     }
                 }
