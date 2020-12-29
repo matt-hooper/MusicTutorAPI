@@ -8,7 +8,6 @@ namespace MusicTutorAPI.Core.Models
     {
         public Pupil()
         {
-            PupilInstruments = new Collection<PupilInstrument>();
             Payments = new Collection<Payment>();
             Lessons = new Collection<Lesson>();
         }
@@ -30,8 +29,6 @@ namespace MusicTutorAPI.Core.Models
         public int FrequencyInDays { get; set; }
 
         public byte[] Timestamp { get; set; }
-
-        public ICollection<PupilInstrument> PupilInstruments { get; set; }
 
         public ICollection<Payment> Payments { get; set; }
 

@@ -15,21 +15,21 @@ namespace MusicTutorAPI.Data
             : base(options)
         { }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            builder
-                .ApplyConfiguration(new ContactConfiguration());
-            builder
-                .ApplyConfiguration(new InstrumentConfiguration());                
-            builder
-                .ApplyConfiguration(new LessonConfiguration());    
-            builder
-                .ApplyConfiguration(new PaymentConfiguration());                
-            builder
-                .ApplyConfiguration(new PupilConfiguration());
-            builder
-                .ApplyConfiguration(new PupilInstrumentConfiguration());
+        // protected override void OnModelCreating(ModelBuilder builder)
+        // {
+        //     builder
+        //         .ApplyConfiguration(new ContactConfiguration());
+        //     builder
+        //         .ApplyConfiguration(new InstrumentConfiguration());                
+        //     builder
+        //         .ApplyConfiguration(new LessonConfiguration());    
+        //     builder
+        //         .ApplyConfiguration(new PaymentConfiguration());                
+        //     builder
+        //         .ApplyConfiguration(new PupilConfiguration());
+        //     builder
+        //         .ApplyConfiguration(new PupilInstrumentConfiguration());
 
-        }
+        // }
     }
 }

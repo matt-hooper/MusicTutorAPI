@@ -16,8 +16,8 @@ namespace MusicTutorAPI.Core.Models
         public Pupil Pupil { get; set; }
 
         public int InstrumentId { get; set; }
-        public PupilInstrument PupilInstrument { get; set; }
-
+        public Instrument Instrument { get; set; }
+    
         public Boolean IsPlanned { get; set; } = true;
 
     }
