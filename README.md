@@ -16,3 +16,10 @@ dotnet ef --startup-project MusicTutorAPI.Api/MusicTutorAPI.Api.csproj database 
 dotnet ef --startup-project MusicTutorAPI.Api/MusicTutorAPI.Api.csproj database update APreviousMigration -p MusicTutorAPI.Data/MusicTutorAPI.Data.csproj
 
 dotnet ef --startup-project MusicTutorAPI.Api/MusicTutorAPI.Api.csproj database update InitialModel -p MusicTutorAPI.Data/MusicTutorAPI.Data.csproj
+
+
+# Add HealthChecks
+https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-5.0
+
+# EF Core GenericServices
+https://github.com/JonPSmith/EfCore.GenericServices
