@@ -1,14 +1,11 @@
-using System.Reflection;
-using GenericServices.Configuration;
-using GenericServices.Setup;
+using System;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MusicTutorAPI.Api.Controllers.Instruments.Dtos;
-using MusicTutorAPI.Data;
+using MusicTutorAPI.Api.Installers;
 
 namespace MusicTutorAPI.Api
 {
@@ -24,26 +21,13 @@ namespace MusicTutorAPI.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddDbContext<MusicTutorAPIDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MusicTutorAPI.Data")));            
-            
-            // services.AddDbContext<MusicTutorAPIDbContext>(opt =>
-            //    opt.UseInMemoryDatabase("MusicTutorFull"));
+            var installers = typeof(Startup).Assembly.ExportedTypes.Where(x => 
+                typeof(IInstaller).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                .Select(Activator.CreateInstance).Cast<IInstaller>().ToList();
 
-            services.GenericServicesSimpleSetup<MusicTutorAPIDbContext>(new GenericServicesConfig
-            {
-                DtoAccessValidateOnSave = true,     //we use  Dto access for Create/Update
-                DirectAccessValidateOnSave = true  //And direct access for Delete                
-            }, Assembly.GetAssembly(typeof(CreateInstrumentDto)));   
-
-            // Register the Swagger services
-            services.AddSwaggerDocument(config =>
-            {
-                config.Title = "Music Tutor V1";                
-            });   
-
-            services.AddHealthChecks().AddDbContextCheck<MusicTutorAPIDbContext>();             
+            installers.ForEach(installer => installer.InstallServices(services, Configuration));            
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
