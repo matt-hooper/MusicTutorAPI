@@ -4,15 +4,39 @@ namespace MusicTutorAPI.Core.Models
 {
     public class Contact 
     {
-        public int Id { get; set; }
+        private Contact() {}
+
+        public Contact(string name, string email = null, string phoneNumber = null)
+        {
+            Name = name;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
+
+        public int Id { get; private set; }
         
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; private set; }
 
-        public ICollection<Pupil> Pupils { get; set; }
+        public IEnumerable<Pupil> Pupils { get; private set; }
+
+        public void ChangeName (string name)
+        {
+           Name = name;
+        }
+
+        public void ChangeEmail (string email)
+        {
+           Email = email;
+        }
+
+        public void ChangePhoneNumber (string phoneNumber)
+        {
+           PhoneNumber = phoneNumber;
+        }
         
     }
 }

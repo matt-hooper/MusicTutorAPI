@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using GenericServices;
 using GenericServices.AspNetCore;
@@ -9,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MusicTutorAPI.Core.Dtos;
 using MusicTutorAPI.Core.Models;
-using MusicTutorAPI.Data;
 
 namespace MusicTutorAPI.Api.Controllers
 {
@@ -19,14 +16,11 @@ namespace MusicTutorAPI.Api.Controllers
     {
 
         private readonly ILogger<ContactController> _logger;
-        private readonly MusicTutorAPIDbContext _context;
-
         private readonly ICrudServicesAsync _service;
 
-        public ContactController(ILogger<ContactController> logger, MusicTutorAPIDbContext musicTutorAPIDbContext, ICrudServicesAsync service)
+        public ContactController(ILogger<ContactController> logger, ICrudServicesAsync service)
         {
             _logger = logger;
-            _context = musicTutorAPIDbContext;
             _service = service;
         }
 
@@ -102,8 +96,6 @@ namespace MusicTutorAPI.Api.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
-
-
 
         /// <summary>
         /// Delete the Item 
