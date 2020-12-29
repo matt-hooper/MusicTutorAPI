@@ -42,7 +42,7 @@ namespace MusicTutorAPI.Api
                 config.Title = "Music Tutor V1";                
             });   
 
-            services.AddHealthChecks().AddSqlServer(Configuration.GetConnectionString("Default"));;             
+            services.AddHealthChecks().AddDbContextCheck<MusicTutorAPIDbContext>();             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
