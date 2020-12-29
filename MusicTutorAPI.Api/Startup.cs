@@ -40,7 +40,9 @@ namespace MusicTutorAPI.Api
             services.AddSwaggerDocument(config =>
             {
                 config.Title = "Music Tutor V1";                
-            });                
+            });   
+
+            services.AddHealthChecks().AddSqlServer(Configuration.GetConnectionString("Default"));;             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +62,7 @@ namespace MusicTutorAPI.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
 
             app.UseOpenApi();
