@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using GenericServices;
 using MusicTutorAPI.Core.Models;
 
-namespace MusicTutorAPI.Core.Dtos
+namespace MusicTutorAPI.Api.Controllers.Pupils.Dtos
 {
     public class CreateUpdatePupilDto : ILinkToEntity<Pupil>
     {

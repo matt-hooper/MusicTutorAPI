@@ -1,33 +1,19 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using GenericServices;
 using GenericServices.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using MusicTutorAPI.Core.Dtos;
+using MusicTutorAPI.Api.Controllers.Instruments.Dtos;
 using MusicTutorAPI.Core.Models;
-using MusicTutorAPI.Data;
 
-namespace MusicTutorAPI.Api.Controllers
+namespace MusicTutorAPI.Api.Controllers.Instruments
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class InstrumentController : ControllerBase
+    public class InstrumentController : BaseApiController
     {
 
-        private readonly ILogger<InstrumentController> _logger;
-        private readonly MusicTutorAPIDbContext _context;
-
-        private readonly ICrudServicesAsync _service;
-
-        public InstrumentController(ILogger<InstrumentController> logger, MusicTutorAPIDbContext musicTutorAPIDbContext, ICrudServicesAsync service)
-        {
-            _logger = logger;
-            _context = musicTutorAPIDbContext;
-            _service = service;
+        public InstrumentController(ICrudServicesAsync service) : base(service)
+        {            
         }
 
         [HttpGet]
