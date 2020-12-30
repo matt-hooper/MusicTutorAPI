@@ -1,0 +1,12 @@
+[
+    {
+        "Name": "Sarah",
+        "Email": "mum.sarah@mailinator.com",
+        "PhoneNumber": "07777 123456"
+    },
+    {
+        "Name": "Peter",
+        "Email": "dad.peter@mailinator.com",
+        "PhoneNumber": "07777 112244"
+    }   
+]
