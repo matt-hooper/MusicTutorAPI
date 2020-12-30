@@ -42,13 +42,7 @@ namespace MusicTutorAPI.Api
             {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");
-            });
-
-            app.UseOpenApi();
-            app.UseSwaggerUi3(c =>
-            {
-                c.DocumentTitle = "Music Tutor V1";
-            });
+            });            
         }
     }
 }
