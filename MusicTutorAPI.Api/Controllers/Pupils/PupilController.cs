@@ -31,6 +31,7 @@ namespace MusicTutorAPI.Api.Controllers.Pupils
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [ProducesResponseType(typeof(WebApiMessageAndResult<Pupil>), 200)]
         [HttpGet("{id}", Name = "GetSinglePupil")]
         public async Task<ActionResult<WebApiMessageAndResult<Pupil>>> GetSingleAsync(int id)
         {
@@ -44,7 +45,7 @@ namespace MusicTutorAPI.Api.Controllers.Pupils
         /// <returns>If successful it returns a CreatedAtRoute response - see
         /// https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-2.1#implement-the-other-crud-operations
         /// </returns>
-        [ProducesResponseType(typeof(CreateUpdatePupilDto), 201)] //You need this, otherwise Swagger says the success status is 200, not 201
+        [ProducesResponseType(typeof(Pupil), 201)] //You need this, otherwise Swagger says the success status is 200, not 201
         [ProducesResponseType(typeof(string), 400)]
         [HttpPost]
         public async Task<ActionResult<CreateUpdatePupilDto>> PostAsync(CreateUpdatePupilDto item)

@@ -16,7 +16,7 @@ namespace MusicTutorAPI.Core.Models
         
         public string Name { get; set; }
 
-        public int ContactID { get; set; }
+        public int? ContactID { get; set; }
 
         public Contact Contact { get; set; }
         public decimal CurrentLessonRate { get; set; }

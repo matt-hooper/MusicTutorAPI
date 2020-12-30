@@ -12,7 +12,7 @@ namespace MusicTutorAPI.Api.Controllers.Pupils.Dtos
         [Required(AllowEmptyStrings = false)]
         public string Name { get; set; }
 
-        public int ContactID { get; set; }
+        public int? ContactID { get; set; }
 
         public decimal CurrentLessonRate { get; set; }
         public decimal AccountBalance { get; set; } = 0.0m;
