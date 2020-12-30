@@ -16,6 +16,10 @@ namespace MusicTutorAPI.Api.Controllers.Pupils
         {            
         }
 
+        /// <summary>
+        /// Gets all Pupils
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<WebApiMessageAndResult<List<Pupil>>>> GetManyAsync()
         {
@@ -23,7 +27,7 @@ namespace MusicTutorAPI.Api.Controllers.Pupils
         }
 
         /// <summary>
-        /// Gets the Item with the given id
+        /// Gets the Pupil with the given id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -34,7 +38,7 @@ namespace MusicTutorAPI.Api.Controllers.Pupils
         }
 
         /// <summary>
-        /// Creates a new item and returns the created entity, with the Id value provided by the database
+        /// Creates a new Pupil and returns the created entity, with the Id value provided by the database
         /// </summary>
         /// <param name="item"></param>
         /// <returns>If successful it returns a CreatedAtRoute response - see
@@ -62,7 +66,7 @@ namespace MusicTutorAPI.Api.Controllers.Pupils
         }
 
         /// <summary>
-        /// Updates the supplied item and returns the updated entity
+        /// Updates the supplied Pupil and returns the updated entity
         /// </summary>
         /// <param name="item"></param>
         /// <returns>If successful it returns a CreatedAtRoute response - see
@@ -92,7 +96,7 @@ namespace MusicTutorAPI.Api.Controllers.Pupils
 
 
         /// <summary>
-        /// Delete the Item 
+        /// Delete the Pupil 
         /// </summary>
         /// <returns></returns>
         // DELETE api/<type>/5

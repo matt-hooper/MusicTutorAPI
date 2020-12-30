@@ -11,7 +11,14 @@ namespace MusicTutorAPI.Api.Installers
             services.AddSwaggerDocument(config =>
             {
                 config.Title = "Music Tutor V1";
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Description = "https://github.com/matt-hooper/MusicTutorAPI";
+                };
             });
+
+
         }
     }
 }

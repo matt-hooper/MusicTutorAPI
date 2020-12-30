@@ -16,6 +16,10 @@ namespace MusicTutorAPI.Api.Controllers.Contacts
         {            
         }
 
+        /// <summary>
+        /// Gets all Contacts
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<WebApiMessageAndResult<List<Contact>>>> GetManyAsync()
         {

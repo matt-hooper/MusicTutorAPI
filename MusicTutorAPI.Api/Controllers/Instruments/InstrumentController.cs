@@ -16,6 +16,10 @@ namespace MusicTutorAPI.Api.Controllers.Instruments
         {            
         }
 
+        /// <summary>
+        /// Gets all Instruments
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<WebApiMessageAndResult<List<Instrument>>>> GetManyAsync()
         {
@@ -23,7 +27,7 @@ namespace MusicTutorAPI.Api.Controllers.Instruments
         }
 
         /// <summary>
-        /// Gets the Item with the given id
+        /// Gets the Instrument with the given id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -34,8 +38,11 @@ namespace MusicTutorAPI.Api.Controllers.Instruments
         }
 
         /// <summary>
-        /// Creates a new item and returns the created entity, with the Id value provided by the database
+        /// Creates a new Instrument and returns the created entity, with the Id value provided by the database
         /// </summary>
+        /// <remarks>
+        /// Section to add any remarks
+        /// </remarks>
         /// <param name="item"></param>
         /// <returns>If successful it returns a CreatedAtRoute response - see
         /// https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-2.1#implement-the-other-crud-operations
@@ -74,7 +81,7 @@ namespace MusicTutorAPI.Api.Controllers.Instruments
         }
 
         /// <summary>
-        /// Delete the Item 
+        /// Delete the Instrument
         /// </summary>
         /// <returns></returns>
         // DELETE api/<type>/5
